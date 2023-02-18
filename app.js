@@ -8,7 +8,12 @@ square.style.height = `${size}px`
 square.style.backgroundColor = '#2e8ed7'
 
 window.addEventListener('scroll', () => {
-    if (grow == true) {
+    if (size >= window.innerWidth / 2 && size >= window.innerHeight / 2) {
+        grow = !grow
+    } else if (size == 100) {
+        grow = true
+    }
+    if (grow) {
         size += 5
         square.style.width = `${size}px`
         square.style.height = `${size}px`
@@ -17,9 +22,5 @@ window.addEventListener('scroll', () => {
         square.style.width = `${size}px`
         square.style.height = `${size}px`
     }
-    if (size >= window.innerWidth / 2 && size >= window.innerHeight / 2) {
-        grow = false
-    } else if (size == 100) {
-        grow = true
-    }
+
 })
